@@ -1,21 +1,32 @@
 package com.capgemini;
 
 public abstract class Contestant {
-    private boolean isAlive;
+    private boolean isAlive=true;
     private int health;
     private Gender gender;
     private int attackLevel;
     private int defenceLevel;
     private BattleItem battleItem;
 
-    public Contestant(boolean isAlive, int health, Gender gender, int attackLevel, int defenceLevel, BattleItem battleItem) {
-        this.isAlive = isAlive;
+    public Contestant(int health, Gender gender, int attackLevel, int defenceLevel, BattleItem battleItem) {
         this.health = health;
         this.gender = gender;
         this.attackLevel = attackLevel;
         this.defenceLevel = defenceLevel;
         this.battleItem=battleItem;
 
+    }
+
+    public void isContestantAlive()
+    {
+        if(health>0)
+        {
+            isAlive=true;
+        }
+        else
+        {
+            isAlive=false;
+        }
     }
 
     public boolean isAlive() {
