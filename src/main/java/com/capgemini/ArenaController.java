@@ -5,6 +5,7 @@ import java.util.Random;
 public class ArenaController {
     private String contestantType;
 
+
     //creating a constructor with a simple name
     public ArenaController(String contestantType) {
         this.contestantType = contestantType;
@@ -15,6 +16,8 @@ public class ArenaController {
     Contestant[] districtPlayersFemales = new District[9];
     Contestant[] careerPlayersMales = new Career[3];
     Contestant[] careerPlayersFemales = new Career[3];
+    Contestant[] allPlayers;
+
 
     //creating random objector
     Random random = new Random();
@@ -71,11 +74,34 @@ public class ArenaController {
         }
     }
 
-    public String getContestantType() {
-        return contestantType;
+    //bruteforce way of joining the lists
+    public void joinAll(Contestant[] join1, Contestant[] join2, Contestant[] join3, Contestant[] join4) {
+        Contestant[] newList = new Contestant[25];
+        for (int i = 0; i < join1.length; i++) {
+            newList[i] = join1[i];
+        }
+        for (int i = 0; i < join2.length; i++) {
+            newList[i + join1.length] = join2[i];
+        }
+        for (int i = 0; i < join3.length; i++) {
+            newList[i + join1.length + join2.length] = join3[i];
+        }
+        for (int i = 0; i < join4.length; i++) {
+            newList[i + join1.length + join2.length + join3.length] = join4[i];
+        }
+        this.allPlayers = newList;
     }
 
-    public void setContestantType(String contestantType) {
-        this.contestantType = contestantType;
+    //declaring a method that would check alive players
+    public void requestAlivePlayers() {
+        int arrayLength = allPlayers.length-1;
+        for (int i = 0; i < arrayLength; i++) {
+            if (allPlayers[i].getHealth() > 0) {
+                //using the casting method so that we can access the People Plane's methods, and of course saving in a temp
+                System.out.println("The ID of alive player is: " + allPlayers[i].getContestantId());
+            } else {
+                System.out.println("Sorry no alive players found :(");
+            }
+        }
     }
 }

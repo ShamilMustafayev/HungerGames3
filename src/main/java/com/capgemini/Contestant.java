@@ -1,7 +1,5 @@
 package com.capgemini;
 
-import java.util.Random;
-
     //abstract class
 public abstract class Contestant {
 

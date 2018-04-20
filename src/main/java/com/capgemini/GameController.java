@@ -1,5 +1,15 @@
 package com.capgemini;
 
 public class GameController {
-    //have not started yet
+
+
+    public GameController() {
+
+    }
+
+    public void fight() {
+
+        //have not started yet
+
+    }
 }
