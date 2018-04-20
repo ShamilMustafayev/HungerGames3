@@ -1,14 +1,19 @@
 package com.capgemini;
 
+import java.util.Random;
+
 public abstract class Contestant {
     private boolean isAlive=true;
+    private int contestantId;
     private int health;
     private Gender gender;
     private int attackLevel;
     private int defenceLevel;
     private BattleItem battleItem;
 
-    public Contestant(int health, Gender gender, int attackLevel, int defenceLevel, BattleItem battleItem) {
+
+    public Contestant(int contestantId, int health, Gender gender, int attackLevel, int defenceLevel, BattleItem battleItem) {
+        this.contestantId=contestantId;
         this.health = health;
         this.gender = gender;
         this.attackLevel = attackLevel;
@@ -75,5 +80,13 @@ public abstract class Contestant {
 
     public void setBattleItem(BattleItem battleItem) {
         this.battleItem = battleItem;
+    }
+
+    public int getContestantId() {
+        return contestantId;
+    }
+
+    public void setContestantId(int contestantId) {
+        this.contestantId = contestantId;
     }
 }
