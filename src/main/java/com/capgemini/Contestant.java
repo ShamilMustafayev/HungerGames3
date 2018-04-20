@@ -2,7 +2,10 @@ package com.capgemini;
 
 import java.util.Random;
 
+    //abstract class
 public abstract class Contestant {
+
+    //initializing necessary variables
     private boolean isAlive=true;
     private int contestantId;
     private int health;
@@ -11,7 +14,7 @@ public abstract class Contestant {
     private int defenceLevel;
     private BattleItem battleItem;
 
-
+    //creating a constructor
     public Contestant(int contestantId, int health, Gender gender, int attackLevel, int defenceLevel, BattleItem battleItem) {
         this.contestantId=contestantId;
         this.health = health;
@@ -22,6 +25,7 @@ public abstract class Contestant {
 
     }
 
+    //not used method for now
     public void isContestantAlive()
     {
         if(health>0)
@@ -33,6 +37,8 @@ public abstract class Contestant {
             isAlive=false;
         }
     }
+
+    //getters and setters necessary to be able to access private variables from other classes
 
     public boolean isAlive() {
         return isAlive;
